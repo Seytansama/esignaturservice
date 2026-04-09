@@ -50,6 +50,12 @@ public class SignatureService {
     public SignatureResponseDTO getSignature(UUID id) {
         SignatureProcess process = repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Signaturvorgang nicht gefunden mit ID: " + id));
+
+        // Status vom Adapter abfragen und in DB aktualisieren
+        String currentStatus = adapter.getStatus(process.getProviderProcessId());
+        process.setStatus(currentStatus);
+        repository.save(process);
+
         return toResponseDTO(process);
     }
 

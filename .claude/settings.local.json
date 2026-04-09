@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn test:*)",
+      "Bash(./mvnw test:*)",
+      "Bash(MAVEN_USER_HOME=\"/tmp/.m2\" ./mvnw test)",
+      "Read(//c/Users/meltem.cakmak.AMPADA/.m2/wrapper/dists//**)",
+      "Read(//c/Users/meltem.cakmak.AMPADA/.m2/wrapper/dists/apache-maven-3.9.14//**)"
+    ]
+  }
+}
